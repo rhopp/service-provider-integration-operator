@@ -33,6 +33,11 @@ func New(client client.Client, scheme *runtime.Scheme) Syncer {
 	return Syncer{client: client, scheme: scheme}
 }
 
+func MyNewFunc(ctx context.Context){
+	lg := log.FromContext(ctx)
+	lg.Info("My Info!")
+}
+
 // Sync syncs the blueprint to the cluster in a generic (as much as Go allows) manner.
 // Returns true if the object was created or updated, false if there was no change detected.
 func (s *Syncer) Sync(ctx context.Context, owner client.Object, blueprint client.Object, diffOpts cmp.Option) (bool, client.Object, error) {
