@@ -33,7 +33,7 @@ func New(client client.Client, scheme *runtime.Scheme) Syncer {
 	return Syncer{client: client, scheme: scheme}
 }
 
-func MyNewFunc(ctx context.Context){
+func MyNewFunc(ctx context.Context) {
 	lg := log.FromContext(ctx)
 	lg.Info("My Info!")
 }
